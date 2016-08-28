@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="" height="" style="border: 1px solid black;"></canvas>
+	</body>
+	<script type="text/javascript">
+		var tran = [
+			{p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:'#caff67'},
+			{p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:'#67becf'},
+			{p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:'#ef3d61'},
+			{p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:'#f9f5ia'},
+			{p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:'#a594c0'},
+			{p:[{x:200,y:600},{x:200,y:800},{x:0,y:800}],color:'#f8ecc'},
+			{p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:'#f6ca29'},
+		]
+		var canvas = document.getElementById('canvas');
+		canvas.width = 800;
+		canvas.height = 800;
+		console.log(tran.length)
+		var context  = canvas.getContext('2d');
+		
+		for(var i=0;i<tran.length;i++){
+			draw(tran[i],context)
+		}
+		
+		function draw(pic,cex){
+			cex.beginPath();
+			cex.moveTo(pic.p[0].x,pic.p[0].y)
+			for(var i=0;i<pic.p.length;i++){
+				cex.lineTo(pic.p[i].x,pic.p[i].y);
+			}
+			cex.fillStyle = pic.color;
+			cex.fill();
+			
+			cex.lineWidth = 2;
+			cex.strokeStyle = 'black'
+			cex.stroke()
+		}
+		
+	</script>
+</html>

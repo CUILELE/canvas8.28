@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="600"style="border: 1px solid black;"></canvas>
+	</body>
+	<script type="text/javascript">
+		var can = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+//		context.arc(300,300,200,0,2*Math.PI,anticlockwise = true);
+//		
+//		context.lineWidth = 5;
+//		context.strokeStyle = 'blue';
+//		context.stroke()
+
+		context.lineWidth = 5;
+		context.strokeStyle = 'blue';
+		for(var i=0;i<10;i++){
+			context.beginPath();
+			context.arc(50+i*100,60,40,0,2*Math.PI*(i+1)/10,anticlockwise = false);
+			context.closePath();
+			context.stroke()
+		}
+		for(var i=0;i<10;i++){
+			context.beginPath();
+			context.arc(50+i*100,180,40,0,2*Math.PI*(i+1)/10,anticlockwise = false);
+			context.stroke()
+		}
+		
+		for(var i=0;i<10;i++){
+			context.beginPath();
+			context.arc(50+i*100,300,40,0,2*Math.PI*(i+1)/10,anticlockwise = true);
+			context.fillStyle = 'black'
+			context.fill();
+			context.stroke();
+		}
+		
+		for(var i=0;i<10;i++){
+			context.beginPath();
+			context.arc(50+i*100,420,40,0,2*Math.PI*(i+1)/10,anticlockwise = false);
+			context.closePath()
+			context.fillStyle = 'red';
+			context.fill();
+			context.stroke();
+		}
+	</script>
+</html>
